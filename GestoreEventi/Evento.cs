@@ -11,7 +11,7 @@ namespace GestoreEventi
         private string titolo;
         private DateTime data;
         private int capienza;
-        private int postiPrenotati;
+        private int postiPrenotati = 0;
 
         public string Titolo
         {
@@ -62,12 +62,11 @@ namespace GestoreEventi
             Titolo = titolo;
             Data = data;
             Capienza = capienza;
-            postiPrenotati = 0;
         }
 
         public void PrenotaPosti(int x)
         {
-            if (x > 0)
+            if (x >= 0)
             {
                 if (data > DateTime.Now)
                 {
@@ -79,12 +78,12 @@ namespace GestoreEventi
                     }
                 } else throw new Exception("Non si possono prenotare posti per un evento già concluso");
             }
-            else throw new Exception("I posti prenotati non possono essere un numero negativo o uguale a 0");
+            else throw new Exception("I posti prenotati non possono essere un numero negativo");
         }
 
         public void DisdiciPosti(int x)
         {
-            if (x > 0)
+            if (x >= 0)
             {
                 if (data > DateTime.Now)
                 {
