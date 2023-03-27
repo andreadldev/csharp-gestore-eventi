@@ -14,7 +14,6 @@ for (int i = 0; i < numeroEventi; i++)
 
     Console.WriteLine("Inserisci la data dell'evento (gg/mm/yyyy)");
     var datastring = Console.ReadLine();
-
     DateTime data = Convert.ToDateTime(datastring);
 
     Console.WriteLine("Inserisci il numero di posti totali");
@@ -57,8 +56,7 @@ for (int i = 0; i < numeroEventi; i++)
 
     if (i == numeroEventi - 1)
     {
-        Console.WriteLine($"\nTitolo programma: {programma.Titolo}");
-        Console.WriteLine($"Numero eventi programma: {programma.NumeroEventi()}");
+        Console.WriteLine($"\nNumero eventi: {programma.NumeroEventi()}");
         programma.MostraProgramma();
         //Console.WriteLine($"Dettagli evento: \n{evento.ToString()}");
         //Console.WriteLine($"Capienza massima: {evento.Capienza}");
