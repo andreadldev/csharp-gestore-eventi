@@ -1,8 +1,5 @@
 ﻿using GestoreEventi;
 
-//var test = new Evento("eventoprova", new DateTime(2023, 03, 29), 70);
-
-
 Console.WriteLine("Inserisci il nome dell'evento");
 var titolo = Console.ReadLine();
 
@@ -20,10 +17,10 @@ var postiPrenotati = Convert.ToInt32(Console.ReadLine());
 var evento = new Evento(titolo, data, capienza);
 evento.PrenotaPosti(postiPrenotati);
 
-bool loop = true;
 Console.WriteLine($"Posti prenotati: {evento.PostiPrenotati}");
 Console.WriteLine($"Numero di posti rimanenti: {evento.Capienza - evento.PostiPrenotati}");
 
+bool loop = true;
 while (loop)
 {
     Console.WriteLine("Vuoi disdire dei posti? (si/no)");
