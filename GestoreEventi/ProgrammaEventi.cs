@@ -23,29 +23,32 @@ namespace GestoreEventi
             eventi.Add(evento);
         }
 
-        //public void MostraEventi()
-        //{
-        //    foreach (Evento evento in eventi)
-        //    {
-        //        Console.WriteLine(evento.Titolo);
-        //    }
-        //}
-
-        public void MostraProgramma()
+        public List<Evento> EventiInData(DateTime data)
         {
-            Console.WriteLine(Titolo);
+            var res = new List<Evento>();
             foreach (Evento evento in eventi)
             {
-                Console.WriteLine(evento.ToString());
+                if(evento.Data == data)
+                {
+                    res.Add(evento);
+                }
             }
+
+            return res;
         }
 
-        public static void StampaEventi(List<Evento> lista)
+
+        public static string StampaEventi(List<Evento> lista)
         {
-            foreach (Evento evento in lista)
+            var line = Environment.NewLine;
+            string res = string.Empty;
+
+            foreach (var evento in lista)
             {
-                Console.WriteLine(evento.Titolo);
+                res += evento.ToString() + line;
             }
+
+            return res;
         }
 
         public int NumeroEventi() 
@@ -56,6 +59,15 @@ namespace GestoreEventi
         public void SvuotaListaEventi()
         {
             eventi.Clear();
+        }
+
+        public void MostraProgramma()
+        {
+            Console.WriteLine(Titolo);
+            foreach (Evento evento in eventi)
+            {
+                Console.WriteLine(evento.ToString());
+            }
         }
     }
 }
